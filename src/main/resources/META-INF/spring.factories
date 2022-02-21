@@ -1,0 +1,4 @@
+# Auto Configuration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+top.banner.lib.robot.config.DingtalkConfiguration,\
+top.banner.lib.robot.config.DingtalkHttpClientConfig

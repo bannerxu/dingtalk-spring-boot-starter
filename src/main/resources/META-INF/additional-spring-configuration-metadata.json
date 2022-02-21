@@ -1,0 +1,29 @@
+{
+  "properties": [
+    {
+      "name": "spring.dingtalk.webhook",
+      "type": "java.lang.String",
+      "description": "Description for spring.dingtalk.webhook."
+    },
+    {
+      "name": "spring.dingtalk.keywords",
+      "type": "java.lang.String",
+      "description": "Description for spring.dingtalk.keywords."
+    },
+    {
+      "name": "spring.dingtalk.atMobiles",
+      "type": "java.lang.String",
+      "description": "Description for spring.dingtalk.atMobiles."
+    },
+    {
+      "name": "spring.dingtalk.atAll",
+      "type": "java.lang.String",
+      "description": "Description for spring.dingtalk.atAll."
+    },
+    {
+      "name": "spring.dingtalk.secret",
+      "type": "java.lang.String",
+      "description": "Description for spring.dingtalk.secret."
+    }
+  ]
+}
