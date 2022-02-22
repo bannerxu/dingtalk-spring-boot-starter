@@ -14,6 +14,8 @@ public class DingtalkProperties {
 
     private String secret = "";
 
+    private int maxQueueSize = 2000;
+
 
     public String getWebhook() {
         return webhook;
@@ -53,5 +55,13 @@ public class DingtalkProperties {
 
     public void setSecret(String secret) {
         this.secret = secret;
+    }
+
+    public int getMaxQueueSize() {
+        return maxQueueSize;
+    }
+
+    public void setMaxQueueSize(int maxQueueSize) {
+        this.maxQueueSize = maxQueueSize;
     }
 }

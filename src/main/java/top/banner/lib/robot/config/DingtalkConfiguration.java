@@ -32,7 +32,7 @@ public class DingtalkConfiguration {
 
     @Bean
     public DingtalkRobot dingtalkSender() {
-        return new DingtalkRobot(dingtalkProperties, sendTaskQueue);
+        return new DingtalkRobot(sendTaskQueue);
     }
 
     @Bean

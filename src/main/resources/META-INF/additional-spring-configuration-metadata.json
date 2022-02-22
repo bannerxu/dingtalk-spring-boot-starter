@@ -24,6 +24,11 @@
       "name": "spring.dingtalk.secret",
       "type": "java.lang.String",
       "description": "Description for spring.dingtalk.secret."
+    },
+    {
+      "name": "spring.dingtalk.max-queue-size",
+      "type": "java.lang.String",
+      "description": "Description for spring.dingtalk.max-queue-size."
     }
   ]
 }

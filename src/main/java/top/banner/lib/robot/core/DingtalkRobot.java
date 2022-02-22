@@ -1,7 +1,5 @@
 package top.banner.lib.robot.core;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.client.RestTemplate;
 import top.banner.lib.robot.constant.DingtalkConstant;
@@ -12,22 +10,25 @@ import javax.annotation.Resource;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class DingtalkRobot implements Sender {
-    private static final Logger log = LoggerFactory.getLogger(DingtalkRobot.class);
 
-    private final DingtalkProperties dingtalkProperties;
     private final ConcurrentLinkedQueue<SendTask> sendTaskQueue;
 
-    public DingtalkRobot(DingtalkProperties dingtalkProperties, ConcurrentLinkedQueue<SendTask> sendTaskQueue) {
-        this.dingtalkProperties = dingtalkProperties;
-        this.sendTaskQueue = sendTaskQueue;
-    }
+    @Resource
+    private DingtalkProperties dingtalkProperties;
 
 
     @Resource
     @Qualifier(DingtalkConstant.DINGTALK_REST_TEMPLATE)
     private RestTemplate restTemplate;
 
+    public DingtalkRobot(ConcurrentLinkedQueue<SendTask> sendTaskQueue) {
+        this.sendTaskQueue = sendTaskQueue;
+    }
+
     public void send(Message message) {
+        if (sendTaskQueue.size() > dingtalkProperties.getMaxQueueSize()) {
+            throw new IllegalArgumentException("Queue exceeds maximum");
+        }
         sendTaskQueue.add(new SendTask(dingtalkProperties, restTemplate, message));
     }
 
