@@ -16,36 +16,18 @@
 package top.banner.lib.robot.constant;
 
 /**
- *  常量类
+ * 常量类
  *
  * @author Jaemon
  * @since 1.0
  */
 public interface DingtalkConstant {
 
-    String DINGTALK_PREFIX = "D";
-    /**
-     * 默认线程池中线程名称前缀
-     */
-    String DEFAULT_THREAD_NAME_PREFIX = "dingtalk-";
-
 
     /**
-     * bean name
+     * 自定义restTemplate名称
      */
-    String TEXT_MESSAGE = "textMessage";
-    /**
-     * bean name
-     */
-    String MARKDOWN_MESSAGE = "markDownMessage";
-    /**
-     * bean name
-     */
-    String DINGTALK_EXECUTOR = "dingtalkExecutor";
-    /** 自定义restTemplate名称 */
     String DINGTALK_REST_TEMPLATE = "dingtalkRestTemplate";
-
-    String NEW_LINE = "\r\n";
 
     String SPOT_SPLITTER = ".";
 

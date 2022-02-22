@@ -13,9 +13,8 @@ import top.banner.lib.robot.core.entity.Message;
 import top.banner.lib.robot.core.task.SendTask;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.stream.Collectors;
 
 @Configuration
 @ConditionalOnClass(DingtalkRobot.class)
@@ -37,9 +36,9 @@ public class DingtalkConfiguration {
 
     @Bean
     public Message.At at() {
-        String atMobiles = dingtalkProperties.getAtMobiles();
+        List<String> atMobiles = dingtalkProperties.getAtMobiles();
         return Message.At.builder()
-                .atMobiles(Arrays.stream(atMobiles.split(",")).collect(Collectors.toList()))
+                .atMobiles(atMobiles)
                 .isAtAll(dingtalkProperties.getAtAll())
                 .build();
 

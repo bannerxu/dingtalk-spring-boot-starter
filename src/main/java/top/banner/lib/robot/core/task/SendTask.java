@@ -35,7 +35,7 @@ public class SendTask {
         String webhook = dingtalkProperties.getWebhook();
         try {
             Date date = new Date();
-            log.info("开始发送消息：{}", date);
+            log.debug("开始发送消息：{}", date);
             String sign = sign(date.getTime());
             ResponseEntity<String> entity;
             if (sign == null) {
@@ -44,7 +44,7 @@ public class SendTask {
                 entity = restTemplate.postForEntity(webhook + "&timestamp=" + date.getTime() + "&sign=" + sign, message, String.class);
             }
 
-            log.info("<===== success code {} body {}", entity.getStatusCodeValue(), entity.getBody());
+            log.debug("<===== success code {} body {}", entity.getStatusCodeValue(), entity.getBody());
         } catch (Exception e) {
             log.error("<=====error=====>", e);
         }

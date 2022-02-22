@@ -5,7 +5,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.convert.DurationUnit;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 import top.banner.lib.robot.constant.DingtalkConstant;
@@ -31,14 +30,11 @@ public class DingtalkHttpClientConfig {
 
     @Bean(name = DingtalkConstant.DINGTALK_REST_TEMPLATE)
     public RestTemplate restTemplate() {
-        return new RestTemplate(dingtalkClientHttpRequestFactory());
-    }
-
-    public ClientHttpRequestFactory dingtalkClientHttpRequestFactory() {
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
         factory.setReadTimeout((int) readTimeout.toMillis());
         factory.setConnectTimeout((int) connectTimeout.toMillis());
-        return factory;
+
+        return new RestTemplate(factory);
     }
 
     public Duration getConnectTimeout() {

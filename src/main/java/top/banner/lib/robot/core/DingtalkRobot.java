@@ -1,5 +1,7 @@
 package top.banner.lib.robot.core;
 
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.client.RestTemplate;
 import top.banner.lib.robot.constant.DingtalkConstant;
@@ -17,7 +19,7 @@ public class DingtalkRobot implements Sender {
     private DingtalkProperties dingtalkProperties;
 
 
-    @Resource
+    @Autowired
     @Qualifier(DingtalkConstant.DINGTALK_REST_TEMPLATE)
     private RestTemplate restTemplate;
 
@@ -28,6 +30,9 @@ public class DingtalkRobot implements Sender {
     public void send(Message message) {
         if (sendTaskQueue.size() > dingtalkProperties.getMaxQueueSize()) {
             throw new IllegalArgumentException("Queue exceeds maximum");
+        }
+        if (StringUtils.isBlank(dingtalkProperties.getWebhook())) {
+            throw new IllegalArgumentException("WebHook is null");
         }
         sendTaskQueue.add(new SendTask(dingtalkProperties, restTemplate, message));
     }
