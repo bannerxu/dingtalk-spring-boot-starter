@@ -9,7 +9,7 @@
 <dependency>
     <groupId>top.banner.lib</groupId>
     <artifactId>dingtalk-spring-boot-starter</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>1.0</version>
 </dependency>
 ```
 

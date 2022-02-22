@@ -1,5 +1,6 @@
 package top.banner.lib.robot;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Ignore
 public class DingtalkSpringBootStarterApplicationTests {
     private static final Logger log = LoggerFactory.getLogger(DingtalkSpringBootStarterApplicationTests.class);
 
