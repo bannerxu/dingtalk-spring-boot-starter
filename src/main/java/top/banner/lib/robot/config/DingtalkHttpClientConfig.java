@@ -30,11 +30,10 @@ public class DingtalkHttpClientConfig {
     private Duration readTimeout = Duration.ofSeconds(30);
 
     @Bean(name = DingtalkConstant.DINGTALK_REST_TEMPLATE)
-    public RestTemplate restTemplate(ClientHttpRequestFactory dingtalkClientHttpRequestFactory) {
-        return new RestTemplate(dingtalkClientHttpRequestFactory);
+    public RestTemplate restTemplate() {
+        return new RestTemplate(dingtalkClientHttpRequestFactory());
     }
 
-    @Bean(name = "dingtalkClientHttpRequestFactory")
     public ClientHttpRequestFactory dingtalkClientHttpRequestFactory() {
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
         factory.setReadTimeout((int) readTimeout.toMillis());
