@@ -7,7 +7,7 @@
 ```xml
 
 <dependency>
-    <groupId>top.banner.lib</groupId>
+    <groupId>io.github.bannerxu</groupId>
     <artifactId>dingtalk-spring-boot-starter</artifactId>
     <version>1.0</version>
 </dependency>
