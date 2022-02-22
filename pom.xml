@@ -4,7 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.bannerxu</groupId>
     <artifactId>dingtalk-spring-boot-starter</artifactId>
-    <version>1.0.1</version>
+    <!--    <version>1.0.2.1-SNAPSHOT</version>-->
+    <version>1.0.2</version>
+
     <name>dingtalk-spring-boot-starter</name>
     <description>dingtalk-spring-boot-starter</description>
     <url>https://github.com/bannerXu/dingding-robot-spring-boot-starter</url>
